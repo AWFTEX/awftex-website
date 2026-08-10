@@ -1,11 +1,4 @@
-from pathlib import Path
-import zipfile, shutil
-
-src_logo = Path("/mnt/data/Awftex Png Logo(20260809-232112).png")
-out = Path("/mnt/data/awftex-main-website")
-(out / "images").mkdir(parents=True, exist_ok=True)
-
-html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -377,17 +370,3 @@ footer h3{color:#fff;margin-bottom:12px}footer p,footer li{font-size:14px}footer
 <a class="whatsapp" href="https://wa.me/?text=Hello%20AWFTEX%20Industries%2C%20I%20need%20information%20about%20your%20dairy%20machinery." aria-label="Contact AWFTEX Industries on WhatsApp">☏</a>
 </body>
 </html>
-'''
-
-(out / "index.html").write_text(html, encoding="utf-8")
-if src_logo.exists():
-    shutil.copy2(src_logo, out / "images" / "awftex-logo.png")
-
-zip_path = Path("/mnt/data/AWFTEX-modern-main-website.zip")
-with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
-    z.write(out / "index.html", "index.html")
-    if (out / "images" / "awftex-logo.png").exists():
-        z.write(out / "images" / "awftex-logo.png", "images/awftex-logo.png")
-
-print(f"Created: {zip_path}")
-print(f"Files: {list(str(p.relative_to(out)) for p in out.rglob('*') if p.is_file())}")
