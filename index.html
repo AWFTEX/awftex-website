@@ -6,13 +6,28 @@
 
 <title>AWFTEX Industries | Integrated Engineering & Industrial Solutions</title>
 
-<meta name="description" content="AWFTEX Industries delivers integrated engineering, manufacturing, fabrication, installation and commissioning solutions across dairy, industrial, MEP, fire safety, security, water, air purification and solar energy.">
+<meta name="description" content="AWFTEX Industries delivers integrated engineering, manufacturing, fabrication, installation and commissioning solutions across dairy, industrial, MEP, fire safety, security, water treatment, air purification and solar energy.">
 
 <style>
-
 /* =========================================================
-   GLOBAL
+   AWFTEX INDUSTRIES — CORPORATE WEBSITE
+   Complete standalone HTML + CSS + JS
    ========================================================= */
+
+:root{
+  --blue:#0756a8;
+  --blue-dark:#062b55;
+  --blue-deep:#041c35;
+  --gold:#e9a21a;
+  --green:#299447;
+  --text:#101d2e;
+  --muted:#687789;
+  --light:#f5f8fb;
+  --border:#e4eaf0;
+  --white:#fff;
+  --max:1280px;
+  --radius:18px;
+}
 
 *{
   margin:0;
@@ -25,20 +40,32 @@ html{
 }
 
 body{
-  font-family:Arial, Helvetica, sans-serif;
-  color:#102236;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+  color:var(--text);
   background:#fff;
   line-height:1.6;
   overflow-x:hidden;
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+button{
+  font:inherit;
 }
 
 .container{
-  width:min(1400px,calc(100% - 80px));
+  width:min(var(--max), calc(100% - 48px));
   margin:auto;
 }
 
@@ -52,342 +79,184 @@ a{
   top:0;
   left:0;
   width:100%;
-  height:82px;
-  z-index:9999;
-
-  background:rgba(255,255,255,.96);
+  z-index:1000;
+  background:rgba(255,255,255,.94);
   backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-
-  border-bottom:1px solid rgba(15,35,55,.08);
-
+  border-bottom:1px solid rgba(220,228,236,.75);
   transition:.3s ease;
 }
 
 .site-header.scrolled{
-  background:rgba(255,255,255,.98);
-  box-shadow:0 10px 40px rgba(10,30,50,.08);
+  box-shadow:0 8px 30px rgba(7,31,55,.08);
 }
 
-.header-container{
-  width:min(1400px,calc(100% - 80px));
-  height:100%;
-  margin:auto;
-
+.header-inner{
+  height:82px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-}
-
-.awftex-logo img{
-  width:190px;
-  height:auto;
-  display:block;
-}
-
-.header-right{
-  display:flex;
-  align-items:center;
-  gap:24px;
-}
-
-.header-phone{
-  color:#132238;
-  font-size:14px;
-  font-weight:600;
-}
-
-.header-phone:hover{
-  color:#0756a8;
-}
-
-.header-project-btn{
-  min-height:44px;
-  padding:0 22px;
-
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  background:#0756a8;
-  color:#fff;
-
-  border-radius:4px;
-
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:1px;
-
-  transition:.25s ease;
-}
-
-.header-project-btn:hover{
-  background:#043d79;
-  transform:translateY(-2px);
-  box-shadow:0 10px 25px rgba(7,86,168,.22);
-}
-
-
-/* =========================================================
-   MENU BUTTON
-   ========================================================= */
-
-.menu-toggle{
-  width:54px;
-  height:54px;
-
-  border:0;
-  border-radius:50%;
-
-  background:#eef8fc;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  gap:5px;
-  cursor:pointer;
-
-  position:relative;
-  z-index:10002;
-
-  transition:.3s ease;
-}
-
-.menu-toggle:hover{
-  background:#dff2f8;
-}
-
-.menu-toggle span{
-  width:19px;
-  height:2px;
-  background:#102236;
-  border-radius:10px;
-  transition:.3s ease;
-}
-
-.menu-toggle.active span:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
-}
-
-.menu-toggle.active span:nth-child(2){
-  opacity:0;
-}
-
-.menu-toggle.active span:nth-child(3){
-  transform:translateY(-7px) rotate(-45deg);
-}
-
-
-/* =========================================================
-   MEGA MENU
-   ========================================================= */
-
-.awftex-mega-menu{
-  position:fixed;
-
-  top:82px;
-  left:0;
-
-  width:100%;
-  height:calc(100vh - 82px);
-
-  background:#fff;
-
-  padding:55px 6vw 30px;
-
-  overflow-y:auto;
-
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-
-  transform:translateY(-15px);
-
-  transition:
-    opacity:.3s ease,
-    transform:.3s ease,
-    visibility:.3s ease;
-}
-
-.awftex-mega-menu.active{
-  opacity:1;
-  visibility:visible;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-
-.mega-menu-inner{
-  width:min(1450px,100%);
-  margin:auto;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    1.8fr
-    1fr
-    1fr
-    1fr
-    1fr;
-
-  gap:35px;
-}
-
-.menu-column h3{
-  margin-bottom:20px;
-  padding-bottom:12px;
-
-  border-bottom:1px solid #e6edf2;
-
-  color:#102236;
-
-  font-size:14px;
-  font-weight:800;
-
-  text-transform:uppercase;
-  letter-spacing:1.2px;
-}
-
-.menu-column>a{
-  display:block;
-
-  padding:7px 0;
-
-  color:#536577;
-
-  font-size:14px;
-
-  transition:.2s ease;
-}
-
-.menu-column>a:hover{
-  color:#0756a8;
-  transform:translateX(4px);
-}
-
-
-/* =========================================================
-   SOLUTIONS
-   ========================================================= */
-
-.solution-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:28px;
-}
-
-.solution-grid a{
-  display:block;
-
-  padding:11px 12px;
-  margin-bottom:5px;
-
-  border-radius:6px;
-
-  transition:.25s ease;
-}
-
-.solution-grid a:hover{
-  background:#f3f8fb;
-  transform:translateX(3px);
-}
-
-.solution-grid strong{
-  display:block;
-  color:#132238;
-  font-size:14px;
-}
-
-.solution-grid small{
-  display:block;
-  margin-top:4px;
-
-  color:#718293;
-  font-size:11px;
-  line-height:1.45;
-}
-
-.solution-grid a:hover strong{
-  color:#0756a8;
-}
-
-
-/* =========================================================
-   MENU BOTTOM
-   ========================================================= */
-
-.mega-menu-bottom{
-  width:min(1450px,100%);
-  margin:45px auto 0;
-
-  padding-top:25px;
-
-  border-top:1px solid #e6edf2;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
   gap:30px;
 }
 
-.menu-bottom-text span{
-  display:block;
-  color:#758596;
-  font-size:13px;
-}
-
-.menu-bottom-text strong{
-  display:block;
-  color:#102236;
-  font-size:22px;
-}
-
-.menu-actions{
+.logo{
   display:flex;
-  gap:12px;
+  align-items:center;
+  flex-shrink:0;
 }
 
-.menu-contact,
-.menu-whatsapp{
+.logo img{
+  width:180px;
+  height:auto;
+}
+
+.main-nav{
+  display:flex;
+  align-items:center;
+  gap:29px;
+}
+
+.main-nav > a,
+.nav-dropdown > button{
+  border:0;
+  background:none;
+  color:#24354b;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  padding:30px 0;
+  white-space:nowrap;
+}
+
+.nav-dropdown{
+  position:relative;
+}
+
+.nav-dropdown > button{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.nav-dropdown > button::after{
+  content:"";
+  width:6px;
+  height:6px;
+  border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);
+}
+
+.nav-dropdown:hover .mega-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.mega-menu{
+  position:absolute;
+  top:81px;
+  left:50%;
+  transform:translate(-50%,10px);
+  width:min(1080px, calc(100vw - 40px));
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:0 25px 70px rgba(7,31,55,.15);
+  padding:28px;
+  opacity:0;
+  visibility:hidden;
+  transition:.25s ease;
+}
+
+.mega-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+.mega-column h4{
+  color:var(--blue);
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  margin-bottom:12px;
+}
+
+.mega-column a{
+  display:block;
+  color:#59697b;
+  font-size:13px;
+  padding:5px 0;
+  transition:.2s;
+}
+
+.mega-column a:hover{
+  color:var(--blue);
+  transform:translateX(3px);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.header-phone{
+  color:var(--blue);
+  font-size:13px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.header-cta{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-
-  padding:14px 22px;
-
-  border-radius:4px;
-
-  font-size:12px;
-  font-weight:700;
-
-  text-transform:uppercase;
-  letter-spacing:.7px;
-}
-
-.menu-contact{
-  border:1px solid #d7e1e8;
-}
-
-.menu-contact:hover{
-  background:#f3f7fa;
-}
-
-.menu-whatsapp{
-  background:#0756a8;
+  height:44px;
+  padding:0 19px;
+  border-radius:7px;
+  background:var(--blue);
   color:#fff;
+  font-size:12px;
+  font-weight:800;
+  transition:.2s;
 }
 
-.menu-whatsapp:hover{
-  background:#043d79;
+.header-cta:hover{
+  background:var(--blue-dark);
   transform:translateY(-2px);
 }
 
-.menu-whatsapp span{
-  margin-left:10px;
-  font-size:18px;
+.mobile-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.mobile-toggle span,
+.mobile-toggle span::before,
+.mobile-toggle span::after{
+  content:"";
+  display:block;
+  width:20px;
+  height:2px;
+  background:var(--blue-dark);
+  margin:auto;
+  position:relative;
+}
+
+.mobile-toggle span::before{
+  position:absolute;
+  top:-7px;
+}
+
+.mobile-toggle span::after{
+  position:absolute;
+  top:7px;
 }
 
 
@@ -396,312 +265,202 @@ a{
    ========================================================= */
 
 .hero{
-  min-height:100vh;
-
-  padding-top:82px;
-
   position:relative;
-
+  min-height:820px;
   display:flex;
   align-items:center;
-
   overflow:hidden;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5,25,45,.92) 0%,
-      rgba(5,25,45,.78) 38%,
-      rgba(5,25,45,.32) 72%,
-      rgba(5,25,45,.08) 100%
-    ),
-    url("images/dairy/awftex-firstimage.png")
-    center center / cover no-repeat;
-
-  color:#fff;
+  background:#eef4f8;
 }
 
-.hero::after{
-  content:"";
-
+.hero-background{
   position:absolute;
   inset:0;
-
-  background:
+  background-image:
     linear-gradient(
-      180deg,
-      rgba(0,0,0,.12),
-      transparent 35%,
-      rgba(0,0,0,.2)
-    );
-
-  pointer-events:none;
+      90deg,
+      rgba(3,20,38,.94) 0%,
+      rgba(3,20,38,.82) 32%,
+      rgba(3,20,38,.38) 58%,
+      rgba(3,20,38,.06) 100%
+    ),
+    url("images/dairy/awftex-firstimage.png");
+  background-size:cover;
+  background-position:center;
+  z-index:0;
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-
-  width:min(1400px,calc(100% - 80px));
-
-  margin:auto;
-
-  padding:100px 0;
+  padding-top:82px;
+  max-width:820px;
+  color:#fff;
 }
 
-.eyebrow{
-  display:flex;
+.hero-eyebrow{
+  display:inline-flex;
   align-items:center;
   gap:10px;
-
-  margin-bottom:22px;
-
+  margin-bottom:24px;
+  color:#dcecff;
   font-size:12px;
-  font-weight:700;
-
-  letter-spacing:2px;
-
-  color:#dcefff;
+  font-weight:800;
+  letter-spacing:1.3px;
 }
 
-.eyebrow span{
-  width:34px;
-  height:2px;
-  background:#55c6e8;
+.hero-eyebrow span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#52c46b;
+  box-shadow:0 0 0 5px rgba(82,196,107,.13);
 }
 
 .hero h1{
-  max-width:850px;
-
-  font-size:clamp(44px,6vw,82px);
-
-  line-height:1.04;
-
-  letter-spacing:-2.5px;
-
-  font-weight:400;
+  font-size:clamp(48px,6vw,82px);
+  line-height:1.02;
+  letter-spacing:-3px;
+  font-weight:800;
+  margin-bottom:26px;
 }
 
 .hero h1 strong{
-  font-weight:800;
+  color:#f0ad29;
 }
 
-.hero p{
-  max-width:760px;
-
-  margin-top:25px;
-
-  color:rgba(255,255,255,.84);
-
-  font-size:17px;
-
-  line-height:1.8;
+.hero-description{
+  max-width:730px;
+  font-size:18px;
+  line-height:1.75;
+  color:#e3edf7;
+  margin-bottom:32px;
 }
 
-.actions{
+.hero-actions{
   display:flex;
   flex-wrap:wrap;
-  gap:14px;
-
-  margin-top:35px;
+  gap:13px;
+  margin-bottom:40px;
 }
 
 .btn{
+  min-height:52px;
+  padding:0 23px;
   display:inline-flex;
-
   align-items:center;
   justify-content:center;
-
-  min-height:52px;
-
-  padding:0 26px;
-
-  border-radius:4px;
-
+  border-radius:7px;
   font-size:13px;
-  font-weight:700;
-
-  letter-spacing:.5px;
-
-  transition:.25s ease;
+  font-weight:800;
+  transition:.25s;
 }
 
 .btn-primary{
-  background:#0756a8;
-  color:#fff;
+  background:var(--gold);
+  color:#15263b;
 }
 
 .btn-primary:hover{
-  background:#0b6bcf;
-  transform:translateY(-2px);
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(233,162,26,.25);
 }
 
-.btn-outline{
-  border:1px solid rgba(255,255,255,.6);
+.btn-light{
   color:#fff;
+  border:1px solid rgba(255,255,255,.55);
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(8px);
 }
 
-.btn-outline:hover{
+.btn-light:hover{
   background:#fff;
-  color:#102236;
+  color:var(--blue);
 }
 
-.hero-capabilities{
-  margin-top:55px;
-
+.hero-trust{
   display:flex;
   flex-wrap:wrap;
-
-  gap:0;
+  gap:9px;
 }
 
-.hero-capability{
-  padding:0 25px;
-
-  border-left:1px solid rgba(255,255,255,.25);
+.trust-item{
+  padding:10px 14px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.17);
+  backdrop-filter:blur(8px);
+  border-radius:6px;
 }
 
-.hero-capability:first-child{
-  padding-left:0;
-  border-left:0;
-}
-
-.hero-capability strong{
+.trust-item b{
   display:block;
   font-size:13px;
 }
 
-.hero-capability span{
+.trust-item small{
   display:block;
-
-  margin-top:2px;
-
-  color:rgba(255,255,255,.65);
-
-  font-size:11px;
+  font-size:10px;
+  color:#cbd9e8;
 }
 
 
 /* =========================================================
-   SECTION
+   SECTION COMMON
    ========================================================= */
 
+section{
+  position:relative;
+}
+
 .section{
-  padding:110px 0;
+  padding:105px 0;
 }
 
-.section-light{
-  background:#f7fafc;
+.section-head{
+  max-width:760px;
+  margin-bottom:48px;
 }
 
-.section-header{
-  max-width:850px;
-  margin-bottom:55px;
-}
-
-.section-label{
-  color:#0756a8;
-
-  font-size:12px;
+.eyebrow{
+  color:var(--blue);
+  font-size:11px;
   font-weight:800;
-
-  letter-spacing:2px;
+  letter-spacing:1.5px;
   text-transform:uppercase;
-
-  margin-bottom:14px;
+  margin-bottom:12px;
 }
 
 .section-title{
-  color:#102236;
-
-  font-size:clamp(34px,4vw,58px);
-
+  font-size:clamp(34px,4vw,55px);
   line-height:1.08;
-
-  letter-spacing:-1.5px;
+  letter-spacing:-1.8px;
+  font-weight:800;
+  color:var(--text);
 }
 
-.section-description{
-  margin-top:18px;
-
-  color:#657586;
-
+.section-subtitle{
+  margin-top:17px;
   font-size:16px;
-
-  line-height:1.8;
+  line-height:1.75;
+  color:var(--muted);
 }
 
-
-/* =========================================================
-   SOLUTIONS
-   ========================================================= */
-
-.solutions-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:18px;
-}
-
-.solution-card{
-  min-height:300px;
-
-  padding:30px;
-
-  border:1px solid #e5edf2;
-
-  background:#fff;
-
-  position:relative;
-
-  overflow:hidden;
-
-  transition:.3s ease;
-}
-
-.solution-card:hover{
-  transform:translateY(-7px);
-
-  box-shadow:
-    0 25px 60px rgba(15,35,55,.1);
-}
-
-.solution-number{
-  color:#b8c8d4;
-
+.section-link{
+  display:inline-flex;
+  margin-top:20px;
+  color:var(--blue);
   font-size:13px;
-  font-weight:700;
-
-  letter-spacing:1px;
+  font-weight:800;
 }
 
-.solution-card h3{
-  margin-top:70px;
-
-  font-size:22px;
-  line-height:1.2;
+.section-link::after{
+  content:"→";
+  margin-left:9px;
+  transition:.2s;
 }
 
-.solution-card p{
-  margin-top:12px;
-
-  color:#6b7c8b;
-
-  font-size:13px;
-  line-height:1.7;
-}
-
-.solution-arrow{
-  position:absolute;
-
-  right:25px;
-  bottom:25px;
-
-  color:#0756a8;
-
-  font-size:22px;
+.section-link:hover::after{
+  transform:translateX(5px);
 }
 
 
@@ -709,115 +468,394 @@ a{
    ABOUT
    ========================================================= */
 
+.about{
+  background:#fff;
+}
+
 .about-grid{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
-  gap:70px;
-
+  gap:75px;
   align-items:center;
 }
 
 .about-image{
-  min-height:520px;
-
+  position:relative;
+  min-height:540px;
+  border-radius:22px;
+  overflow:hidden;
   background:
-    linear-gradient(
-      135deg,
-      rgba(7,86,168,.1),
-      rgba(10,40,70,.08)
-    ),
     url("images/dairy/awftex-firstimage.png")
-    center / cover no-repeat;
+    center/cover no-repeat;
 }
 
-.about-content h2{
-  font-size:clamp(35px,4vw,55px);
-
-  line-height:1.1;
+.about-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(5,34,61,0) 50%,
+    rgba(5,34,61,.52)
+  );
 }
 
-.about-content p{
-  margin-top:20px;
+.about-label{
+  position:absolute;
+  left:25px;
+  bottom:25px;
+  z-index:2;
+  color:#fff;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.7px;
+}
 
-  color:#657586;
-
-  line-height:1.9;
-
+.about-copy p{
+  color:var(--muted);
   font-size:16px;
+  line-height:1.8;
+  margin-bottom:20px;
 }
 
-.about-list{
-  margin-top:30px;
-
+.about-points{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
-  gap:14px;
+  gap:12px;
+  margin-top:28px;
 }
 
-.about-list div{
-  padding:15px;
+.about-point{
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
 
-  background:#f5f8fa;
+.about-point b{
+  display:block;
+  color:var(--blue);
+  font-size:13px;
+  margin-bottom:3px;
+}
 
-  border-left:3px solid #0756a8;
-
-  font-size:14px;
-  font-weight:700;
+.about-point span{
+  color:var(--muted);
+  font-size:11px;
 }
 
 
 /* =========================================================
-   CAPABILITIES
+   SOLUTIONS
    ========================================================= */
 
-.capabilities-grid{
+.solutions{
+  background:var(--light);
+}
+
+.solution-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  border-top:1px solid #dfe8ee;
-  border-left:1px solid #dfe8ee;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
-.capability{
-  padding:35px;
-
-  min-height:210px;
-
-  border-right:1px solid #dfe8ee;
-  border-bottom:1px solid #dfe8ee;
-
-  transition:.25s ease;
+.solution-card{
+  position:relative;
+  min-height:350px;
+  border-radius:17px;
+  overflow:hidden;
+  background:#0b2b4b;
+  color:#fff;
+  isolation:isolate;
 }
 
-.capability:hover{
-  background:#f5f9fb;
+.solution-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    var(--solution-image);
+  background-size:cover;
+  background-position:center;
+  transition:transform .6s ease;
+  z-index:-2;
 }
 
-.capability span{
-  color:#0756a8;
+.solution-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(4,26,48,.05) 15%,
+    rgba(4,26,48,.9) 100%
+  );
+  z-index:-1;
+}
 
-  font-size:12px;
+.solution-card:hover::before{
+  transform:scale(1.07);
+}
+
+.solution-number{
+  position:absolute;
+  top:22px;
+  right:23px;
+  color:rgba(255,255,255,.7);
+  font-size:11px;
   font-weight:800;
 }
 
-.capability h3{
-  margin-top:18px;
+.solution-content{
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:23px;
+}
 
-  font-size:21px;
+.solution-content h3{
+  font-size:24px;
+  line-height:1.15;
+  margin-bottom:9px;
+}
+
+.solution-content p{
+  color:#dce8f3;
+  font-size:12px;
+  line-height:1.55;
+  margin-bottom:14px;
+}
+
+.solution-content a{
+  font-size:11px;
+  font-weight:800;
+  color:#fff;
+}
+
+
+/* =========================================================
+   EXECUTION
+   ========================================================= */
+
+.execution{
+  background:#061e38;
+  color:#fff;
+  overflow:hidden;
+}
+
+.execution::before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.07);
+  right:-240px;
+  top:-170px;
+}
+
+.execution-grid{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:80px;
+  align-items:center;
+}
+
+.execution .eyebrow{
+  color:#83b7eb;
+}
+
+.execution .section-title{
+  color:#fff;
+}
+
+.execution .section-subtitle{
+  color:#b8c9da;
+}
+
+.process{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.1);
+}
+
+.process-step{
+  min-height:150px;
+  padding:25px;
+  background:#082847;
+}
+
+.process-step span{
+  display:block;
+  color:#e9a21a;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:25px;
+}
+
+.process-step h4{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.process-step p{
+  color:#9eb4ca;
+  font-size:11px;
+  line-height:1.55;
+}
+
+
+/* =========================================================
+   DAIRY FEATURE
+   ========================================================= */
+
+.dairy{
+  background:#fff;
+}
+
+.dairy-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:65px;
+  align-items:center;
+}
+
+.dairy-visual{
+  min-height:560px;
+  border-radius:22px;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,42,74,.02),
+      rgba(7,42,74,.5)
+    ),
+    url("images/dairy/awftex-firstimage.png")
+    center/cover no-repeat;
+}
+
+.product-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin-top:30px;
+  border-top:1px solid var(--border);
+}
+
+.product-list a{
+  padding:14px 5px;
+  border-bottom:1px solid var(--border);
+  color:#4e6072;
+  font-size:13px;
+  font-weight:700;
+}
+
+.product-list a::before{
+  content:"→";
+  color:var(--blue);
+  margin-right:9px;
+}
+
+
+/* =========================================================
+   INDUSTRIAL CAPABILITIES
+   ========================================================= */
+
+.capabilities{
+  background:#f4f7fa;
+}
+
+.capability-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.capability{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:28px 23px;
+  min-height:210px;
+  border-radius:12px;
+  transition:.25s;
+}
+
+.capability:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(7,31,55,.08);
+}
+
+.capability-icon{
+  width:42px;
+  height:42px;
+  border-radius:9px;
+  background:#edf5fc;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  margin-bottom:24px;
+}
+
+.capability h3{
+  font-size:16px;
+  margin-bottom:7px;
 }
 
 .capability p{
-  margin-top:10px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
 
-  color:#718293;
 
-  font-size:13px;
+/* =========================================================
+   INDUSTRIES
+   ========================================================= */
+
+.industries{
+  background:#fff;
+}
+
+.industry-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+
+.industry{
+  min-height:155px;
+  padding:23px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:#f4f7fa;
+  border:1px solid #e6ebf0;
+  border-radius:11px;
+  transition:.25s;
+}
+
+.industry:hover{
+  background:var(--blue);
+  color:#fff;
+  transform:translateY(-4px);
+}
+
+.industry span{
+  color:var(--blue);
+  font-size:10px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.industry:hover span{
+  color:#a8d1f8;
+}
+
+.industry h3{
+  font-size:16px;
+  line-height:1.2;
 }
 
 
@@ -825,119 +863,147 @@ a{
    PROJECTS
    ========================================================= */
 
-.projects-grid{
+.projects{
+  background:#f4f7fa;
+}
+
+.project-grid{
   display:grid;
-
-  grid-template-columns:
-    1.4fr 1fr 1fr;
-
-  gap:18px;
+  grid-template-columns:1.2fr .8fr .8fr;
+  gap:15px;
 }
 
-.project{
-  min-height:430px;
-
+.project-card{
   position:relative;
-
+  min-height:410px;
   overflow:hidden;
-
-  background:#102236;
+  border-radius:15px;
+  color:#fff;
+  background:#0b2b4b;
 }
 
-.project:nth-child(1){
-  min-height:600px;
+.project-card.small{
+  min-height:410px;
 }
 
-.project-image{
+.project-card::before{
+  content:"";
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 30%,
-      rgba(5,20,35,.9)
-    ),
-    url("images/dairy/awftex-firstimage.png")
-    center / cover no-repeat;
-
-  transition:.5s ease;
+  background:var(--project-image) center/cover no-repeat;
+  transition:.6s;
 }
 
-.project:hover .project-image{
-  transform:scale(1.05);
-}
-
-.project-content{
+.project-card::after{
+  content:"";
   position:absolute;
-
-  left:30px;
-  right:30px;
-  bottom:30px;
-
-  color:#fff;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    transparent 25%,
+    rgba(3,23,43,.9)
+  );
 }
 
-.project-content span{
-  font-size:11px;
+.project-card:hover::before{
+  transform:scale(1.06);
+}
 
+.project-info{
+  position:absolute;
+  z-index:2;
+  left:23px;
+  right:23px;
+  bottom:22px;
+}
+
+.project-info span{
+  font-size:10px;
+  color:#bdd9f3;
+  font-weight:800;
+  letter-spacing:.8px;
   text-transform:uppercase;
-
-  letter-spacing:1.5px;
-
-  color:#b8dff0;
 }
 
-.project-content h3{
-  margin-top:7px;
-
-  font-size:25px;
-
+.project-info h3{
+  font-size:22px;
+  margin-top:6px;
   line-height:1.2;
+}
+
+.project-info p{
+  font-size:11px;
+  color:#d4e0eb;
+  margin-top:6px;
 }
 
 
 /* =========================================================
-   WHY
+   WHY US
    ========================================================= */
+
+.why{
+  background:#fff;
+}
 
 .why-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:18px;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
 }
 
-.why-card{
-  padding:40px;
-
-  background:#fff;
-
-  border:1px solid #e4ecf1;
+.why-list{
+  margin-top:35px;
 }
 
-.why-card span{
-  font-size:35px;
-
-  color:#0756a8;
+.why-item{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:17px;
+  padding:20px 0;
+  border-bottom:1px solid var(--border);
 }
 
-.why-card h3{
-  margin-top:22px;
-
-  font-size:21px;
+.why-item:first-child{
+  border-top:1px solid var(--border);
 }
 
-.why-card p{
-  margin-top:12px;
+.why-number{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#eef5fb;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:800;
+}
 
-  color:#718293;
+.why-item h3{
+  font-size:16px;
+  margin-bottom:4px;
+}
 
-  font-size:14px;
+.why-item p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
 
-  line-height:1.7;
+.why-image{
+  min-height:650px;
+  border-radius:22px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4,28,53,.02),
+      rgba(4,28,53,.4)
+    ),
+    url("images/dairy/awftex-firstimage.png")
+    center/cover no-repeat;
 }
 
 
@@ -946,50 +1012,128 @@ a{
    ========================================================= */
 
 .numbers{
-  background:#102236;
-
+  background:#062849;
   color:#fff;
+}
 
-  padding:90px 0;
+.numbers-head{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 50px;
+}
+
+.numbers .eyebrow{
+  color:#8bbbe9;
+}
+
+.numbers .section-title{
+  color:#fff;
 }
 
 .numbers-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.14);
+  border-left:1px solid rgba(255,255,255,.14);
 }
 
 .number{
-  padding:20px 30px;
-
-  border-left:1px solid rgba(255,255,255,.16);
-}
-
-.number:first-child{
-  border-left:0;
+  min-height:170px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:30px;
+  border-right:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(255,255,255,.14);
 }
 
 .number strong{
-  display:block;
-
-  font-size:48px;
-
+  font-size:42px;
   line-height:1;
+  color:#fff;
+  margin-bottom:10px;
 }
 
 .number span{
+  color:#a9bed2;
+  font-size:11px;
+  font-weight:700;
+}
+
+
+/* =========================================================
+   TRUST
+   ========================================================= */
+
+.trust{
+  background:#fff;
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.trust-box{
+  padding:35px;
+  background:#f5f8fb;
+  border-radius:16px;
+}
+
+.trust-box h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.trust-box p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+
+.trust-badges{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.trust-badge{
+  padding:20px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+.trust-badge b{
   display:block;
+  color:var(--blue);
+  font-size:15px;
+}
 
-  margin-top:10px;
+.trust-badge span{
+  color:var(--muted);
+  font-size:10px;
+}
 
-  color:rgba(255,255,255,.65);
+.client-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
 
-  font-size:12px;
-
-  text-transform:uppercase;
-
-  letter-spacing:1px;
+.client-placeholder{
+  height:85px;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#9ba8b6;
+  font-size:11px;
+  font-weight:800;
+  border-radius:8px;
 }
 
 
@@ -997,134 +1141,100 @@ a{
    INSIGHTS
    ========================================================= */
 
-.insights-grid{
+.insights{
+  background:#f4f7fa;
+}
+
+.insight-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:20px;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
 .insight{
-  border:1px solid #e4ecf1;
-
-  padding:30px;
-
-  transition:.3s ease;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+  transition:.25s;
 }
 
 .insight:hover{
   transform:translateY(-5px);
-
-  box-shadow:0 20px 50px rgba(15,35,55,.08);
+  box-shadow:0 15px 35px rgba(7,31,55,.08);
 }
 
-.insight span{
-  color:#0756a8;
+.insight-image{
+  height:210px;
+  background:
+    linear-gradient(
+      135deg,
+      #dfeaf4,
+      #f7fafc
+    );
+}
 
-  font-size:11px;
+.insight-body{
+  padding:24px;
+}
 
+.insight-body span{
+  color:var(--blue);
+  font-size:10px;
+  font-weight:800;
   text-transform:uppercase;
-
-  letter-spacing:1.3px;
 }
 
-.insight h3{
-  margin-top:20px;
-
-  font-size:23px;
-
-  line-height:1.25;
+.insight-body h3{
+  font-size:19px;
+  line-height:1.3;
+  margin:9px 0;
 }
 
-.insight p{
-  margin-top:12px;
-
-  color:#718293;
-
-  font-size:13px;
+.insight-body p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
 }
 
 
 /* =========================================================
-   CONTACT
+   CTA
    ========================================================= */
 
-.contact{
-  background:#f4f8fa;
+.final-cta{
+  padding:105px 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,28,53,.96),
+      rgba(4,28,53,.78)
+    ),
+    url("images/dairy/awftex-firstimage.png")
+    center/cover no-repeat;
+  color:#fff;
 }
 
-.contact-grid{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:70px;
-
-  align-items:center;
+.final-cta-inner{
+  max-width:850px;
 }
 
-.contact h2{
-  font-size:clamp(38px,5vw,65px);
+.final-cta .eyebrow{
+  color:#90bee8;
+}
 
+.final-cta h2{
+  font-size:clamp(40px,5vw,68px);
   line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:20px;
 }
 
-.contact p{
-  margin-top:20px;
-
-  color:#687988;
-
-  max-width:600px;
-}
-
-.contact-actions{
-  margin-top:30px;
-
-  display:flex;
-
-  gap:12px;
-
-  flex-wrap:wrap;
-}
-
-.contact-card{
-  background:#fff;
-
-  padding:40px;
-
-  border:1px solid #e2eaf0;
-}
-
-.contact-item{
-  padding:20px 0;
-
-  border-bottom:1px solid #e5edf2;
-}
-
-.contact-item:last-child{
-  border-bottom:0;
-}
-
-.contact-item small{
-  display:block;
-
-  color:#758596;
-
-  font-size:11px;
-
-  text-transform:uppercase;
-
-  letter-spacing:1px;
-}
-
-.contact-item strong{
-  display:block;
-
-  margin-top:5px;
-
-  font-size:17px;
+.final-cta p{
+  color:#d0deeb;
+  font-size:16px;
+  max-width:700px;
+  margin-bottom:28px;
 }
 
 
@@ -1132,87 +1242,63 @@ a{
    FOOTER
    ========================================================= */
 
-.footer{
-  background:#091a2b;
-
+footer{
+  background:#03182d;
   color:#fff;
+}
 
-  padding:75px 0 25px;
+.footer-main{
+  padding:70px 0 50px;
 }
 
 .footer-grid{
   display:grid;
-
-  grid-template-columns:
-    1.6fr 1fr 1fr 1fr;
-
-  gap:50px;
+  grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;
+  gap:35px;
 }
 
-.footer-logo img{
-  width:190px;
-
-  height:auto;
-
-  display:block;
-}
-
-.footer-about{
-  margin-top:20px;
-
-  max-width:360px;
-
-  color:rgba(255,255,255,.62);
-
-  font-size:13px;
-
-  line-height:1.8;
-}
-
-.footer h4{
+.footer-brand img{
+  width:175px;
   margin-bottom:20px;
+  filter:brightness(0) invert(1);
+}
 
+.footer-brand p{
+  color:#9fb3c7;
   font-size:12px;
+  line-height:1.7;
+  max-width:300px;
+}
 
+.footer-column h4{
+  font-size:11px;
   text-transform:uppercase;
-
-  letter-spacing:1.5px;
-}
-
-.footer a{
-  display:block;
-
-  margin:9px 0;
-
-  color:rgba(255,255,255,.62);
-
-  font-size:13px;
-
-  transition:.2s ease;
-}
-
-.footer a:hover{
+  letter-spacing:1px;
   color:#fff;
+  margin-bottom:18px;
+}
 
+.footer-column a{
+  display:block;
+  color:#91a8bd;
+  font-size:11px;
+  padding:4px 0;
+  transition:.2s;
+}
+
+.footer-column a:hover{
+  color:#fff;
   transform:translateX(3px);
 }
 
 .footer-bottom{
-  margin-top:55px;
-
-  padding-top:22px;
-
   border-top:1px solid rgba(255,255,255,.1);
-
+  padding:20px 0;
   display:flex;
-
   justify-content:space-between;
-
   gap:20px;
-
-  color:rgba(255,255,255,.45);
-
-  font-size:11px;
+  color:#738ba1;
+  font-size:10px;
 }
 
 
@@ -1220,260 +1306,289 @@ a{
    FLOATING WHATSAPP
    ========================================================= */
 
-.whatsapp-float{
+.whatsapp{
   position:fixed;
-
-  right:25px;
-  bottom:25px;
-
-  width:58px;
-  height:58px;
-
+  right:22px;
+  bottom:22px;
+  z-index:999;
+  width:57px;
+  height:57px;
   border-radius:50%;
-
-  background:#20b85a;
-
+  background:#1baa55;
   color:#fff;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   font-size:25px;
-
-  z-index:8000;
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.2);
-
-  transition:.3s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  transition:.25s;
 }
 
-.whatsapp-float:hover{
-  transform:translateY(-4px) scale(1.05);
+.whatsapp:hover{
+  transform:scale(1.08);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   REVEAL ANIMATION
    ========================================================= */
 
-@media(max-width:1150px){
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:1100px){
+
+  .main-nav{
+    gap:18px;
+  }
 
   .header-phone{
     display:none;
   }
 
-  .mega-menu-inner{
-    grid-template-columns:
-      repeat(3,1fr);
-  }
-
-  .solutions-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .capabilities-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .numbers-grid{
-    grid-template-columns:
-      repeat(3,1fr);
-  }
-
-  .number{
-    border-bottom:1px solid rgba(255,255,255,.1);
-  }
-
-}
-
-
-@media(max-width:768px){
-
-  .container,
-  .header-container,
-  .hero-content{
-    width:calc(100% - 36px);
-  }
-
-  .site-header{
-    height:72px;
-  }
-
-  .awftex-logo img{
-    width:155px;
-  }
-
-  .header-project-btn{
-    display:none;
-  }
-
-  .menu-toggle{
-    width:48px;
-    height:48px;
-  }
-
-  .awftex-mega-menu{
-    top:72px;
-
-    height:calc(100vh - 72px);
-
-    padding:35px 22px;
-  }
-
-  .mega-menu-inner{
-    grid-template-columns:1fr;
-
-    gap:30px;
-  }
-
   .solution-grid{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr 1fr;
   }
 
-  .mega-menu-bottom{
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    margin-top:35px;
+  .capability-grid{
+    grid-template-columns:1fr 1fr;
   }
 
-  .menu-actions{
-    width:100%;
-
-    flex-direction:column;
-  }
-
-  .menu-contact,
-  .menu-whatsapp{
-    width:100%;
-  }
-
-  .hero{
-    min-height:850px;
-
-    background-position:center;
-  }
-
-  .hero-content{
-    padding:70px 0;
-  }
-
-  .hero h1{
-    font-size:46px;
-
-    letter-spacing:-1.5px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .hero-capabilities{
-    display:grid;
-
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:20px;
-  }
-
-  .hero-capability{
-    padding:0;
-
-    border-left:0;
-  }
-
-  .section{
-    padding:80px 0;
-  }
-
-  .about-grid,
-  .contact-grid{
-    grid-template-columns:1fr;
-
-    gap:40px;
-  }
-
-  .about-image{
-    min-height:380px;
-  }
-
-  .solutions-grid,
-  .why-grid,
-  .insights-grid{
-    grid-template-columns:1fr;
-  }
-
-  .projects-grid{
-    grid-template-columns:1fr;
-  }
-
-  .project,
-  .project:nth-child(1){
-    min-height:400px;
-  }
-
-  .numbers-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .number{
-    padding:25px 15px;
-  }
-
-  .number strong{
-    font-size:38px;
+  .industry-grid{
+    grid-template-columns:repeat(3,1fr);
   }
 
   .footer-grid{
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:40px;
+    grid-template-columns:repeat(3,1fr);
   }
 
 }
 
 
-@media(max-width:480px){
+@media(max-width:850px){
 
-  .awftex-logo img{
-    width:140px;
+  .container{
+    width:min(var(--max), calc(100% - 34px));
+  }
+
+  .header-inner{
+    height:72px;
+  }
+
+  .logo img{
+    width:155px;
+  }
+
+  .main-nav,
+  .header-actions{
+    display:none;
+  }
+
+  .mobile-toggle{
+    display:block;
+  }
+
+  .mobile-menu{
+    display:none;
+    background:#fff;
+    border-top:1px solid var(--border);
+    padding:15px 20px 25px;
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+  }
+
+  .mobile-menu.active{
+    display:block;
+  }
+
+  .mobile-menu a,
+  .mobile-menu button{
+    display:block;
+    width:100%;
+    text-align:left;
+    background:none;
+    border:0;
+    padding:13px 0;
+    color:#24354b;
+    font-size:13px;
+    font-weight:700;
+  }
+
+  .hero{
+    min-height:760px;
+  }
+
+  .hero-background{
+    background-position:65% center;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(3,20,38,.93) 0%,
+        rgba(3,20,38,.82) 55%,
+        rgba(3,20,38,.5) 100%
+      ),
+      url("images/dairy/awftex-firstimage.png");
+  }
+
+  .hero-content{
+    padding-top:90px;
   }
 
   .hero h1{
-    font-size:39px;
+    font-size:52px;
+    letter-spacing:-2px;
   }
 
-  .hero-capabilities{
-    grid-template-columns:1fr;
+  .hero-description{
+    font-size:16px;
   }
 
-  .about-list{
+  .about-grid,
+  .execution-grid,
+  .dairy-grid,
+  .why-grid,
+  .trust-grid{
     grid-template-columns:1fr;
+    gap:40px;
   }
 
-  .capabilities-grid{
-    grid-template-columns:1fr;
+  .about-image,
+  .dairy-visual,
+  .why-image{
+    min-height:430px;
+  }
+
+  .process{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .project-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .project-card:first-child{
+    grid-column:span 2;
   }
 
   .numbers-grid{
     grid-template-columns:1fr 1fr;
   }
 
-  .footer-grid{
+}
+
+
+@media(max-width:600px){
+
+  .section{
+    padding:75px 0;
+  }
+
+  .hero{
+    min-height:820px;
+  }
+
+  .hero h1{
+    font-size:43px;
+    line-height:1.07;
+  }
+
+  .hero-description{
+    font-size:15px;
+    line-height:1.65;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .hero-trust{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-item{
+    padding:9px;
+  }
+
+  .solution-grid,
+  .capability-grid,
+  .industry-grid,
+  .insight-grid{
     grid-template-columns:1fr;
+  }
+
+  .solution-card{
+    min-height:310px;
+  }
+
+  .about-points,
+  .product-list,
+  .trust-badges{
+    grid-template-columns:1fr;
+  }
+
+  .process{
+    grid-template-columns:1fr;
+  }
+
+  .project-grid{
+    grid-template-columns:1fr;
+  }
+
+  .project-card:first-child{
+    grid-column:auto;
+  }
+
+  .numbers-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .number{
+    min-height:130px;
+    padding:20px;
+  }
+
+  .number strong{
+    font-size:32px;
+  }
+
+  .client-strip{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-brand{
+    grid-column:span 2;
   }
 
   .footer-bottom{
     flex-direction:column;
+  }
+
+  .final-cta h2{
+    font-size:43px;
   }
 
 }
@@ -1491,121 +1606,52 @@ a{
 
 <header class="site-header" id="header">
 
-  <div class="header-container">
+  <div class="container header-inner">
 
-    <a href="#" class="awftex-logo">
+    <a href="#" class="logo">
       <img
         src="images/awftex-logo.png"
         alt="AWFTEX Industries">
     </a>
 
-    <div class="header-right">
 
-      <a
-        href="tel:+919915601687"
-        class="header-phone">
-        +91 9915601687
-      </a>
+    <nav class="main-nav">
 
-      <a
-        href="#contact"
-        class="header-project-btn">
-        START A PROJECT
-      </a>
+      <div class="nav-dropdown">
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open Menu"
-        aria-expanded="false">
+        <button type="button">
+          Company
+        </button>
 
-        <span></span>
-        <span></span>
-        <span></span>
+        <div class="mega-menu">
 
-      </button>
+          <div class="mega-grid">
 
-    </div>
+            <div class="mega-column">
+              <h4>Company</h4>
+              <a href="#about">About AWFTEX</a>
+              <a href="#why">Why AWFTEX</a>
+              <a href="#capabilities">Our Capabilities</a>
+              <a href="#numbers">Our Performance</a>
+              <a href="#">Leadership</a>
+            </div>
 
-  </div>
+            <div class="mega-column">
+              <h4>Corporate</h4>
+              <a href="#projects">Projects</a>
+              <a href="#trust">Clients</a>
+              <a href="#">Certifications</a>
+              <a href="#">Infrastructure</a>
+              <a href="#">Careers</a>
+            </div>
 
-
-  <!-- =======================================================
-       MEGA MENU
-       ======================================================= -->
-
-  <div class="awftex-mega-menu" id="megaMenu">
-
-    <div class="mega-menu-inner">
-
-
-      <div class="menu-column">
-
-        <h3>Company</h3>
-
-        <a href="#about">About AWFTEX</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#capabilities">Our Capabilities</a>
-        <a href="#infrastructure">Infrastructure</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#clients">Our Clients</a>
-        <a href="#careers">Careers</a>
-        <a href="#insights">News & Media</a>
-
-      </div>
-
-
-      <div class="menu-column menu-wide">
-
-        <h3>Solutions</h3>
-
-        <div class="solution-grid">
-
-          <div>
-
-            <a href="#dairy">
-              <strong>Dairy & Food Processing</strong>
-              <small>Dairy machinery & complete processing plants</small>
-            </a>
-
-            <a href="#industrial">
-              <strong>Industrial Engineering</strong>
-              <small>Industrial systems, equipment & engineering</small>
-            </a>
-
-            <a href="#mep">
-              <strong>MEP Engineering</strong>
-              <small>Mechanical, electrical, plumbing & HVAC</small>
-            </a>
-
-            <a href="#fabrication">
-              <strong>Fabrication & Manufacturing</strong>
-              <small>Industrial fabrication & custom equipment</small>
-            </a>
-
-          </div>
-
-          <div>
-
-            <a href="#fire">
-              <strong>Fire, Safety & Security</strong>
-              <small>Fire protection, safety & security systems</small>
-            </a>
-
-            <a href="#water">
-              <strong>Water Treatment</strong>
-              <small>Water purification & industrial treatment</small>
-            </a>
-
-            <a href="#air">
-              <strong>Air Purification</strong>
-              <small>Air quality, purification & ventilation</small>
-            </a>
-
-            <a href="#solar">
-              <strong>Energy & Solar</strong>
-              <small>Solar power & renewable energy solutions</small>
-            </a>
+            <div class="mega-column">
+              <h4>Connect</h4>
+              <a href="#insights">News & Insights</a>
+              <a href="#insights">Blogs</a>
+              <a href="#">Downloads</a>
+              <a href="#contact">Contact Us</a>
+            </div>
 
           </div>
 
@@ -1614,170 +1660,200 @@ a{
       </div>
 
 
-      <div class="menu-column">
+      <div class="nav-dropdown">
 
-        <h3>Projects</h3>
+        <button type="button">
+          Solutions
+        </button>
 
-        <a href="#projects">All Projects</a>
-        <a href="#dairy-projects">Dairy Projects</a>
-        <a href="#industrial-projects">Industrial Projects</a>
-        <a href="#mep-projects">MEP Projects</a>
-        <a href="#fire-projects">Fire & Safety Projects</a>
-        <a href="#water-projects">Water Projects</a>
-        <a href="#solar-projects">Solar Projects</a>
-        <a href="#case-studies">Case Studies</a>
+        <div class="mega-menu">
 
-      </div>
+          <div class="mega-grid">
 
+            <div class="mega-column">
 
-      <div class="menu-column">
+              <h4>Dairy & Food</h4>
 
-        <h3>Industries</h3>
+              <a href="#dairy">Dairy Machinery</a>
+              <a href="#dairy">Milk Processing Plants</a>
+              <a href="#dairy">Pasteurization</a>
+              <a href="#dairy">Paneer Processing</a>
+              <a href="#dairy">Complete Dairy Plants</a>
 
-        <a href="#industries">All Industries</a>
-        <a href="#dairy-industry">Dairy & Milk Processing</a>
-        <a href="#food-industry">Food Processing</a>
-        <a href="#agriculture">Agriculture & Agro Processing</a>
-        <a href="#manufacturing">Manufacturing</a>
-        <a href="#industrial-plants">Industrial Plants</a>
-        <a href="#commercial">Commercial Facilities</a>
-        <a href="#infrastructure">Infrastructure</a>
-
-      </div>
+            </div>
 
 
-      <div class="menu-column">
+            <div class="mega-column">
 
-        <h3>Why AWFTEX</h3>
+              <h4>Engineering</h4>
 
-        <a href="#why">Why AWFTEX</a>
-        <a href="#engineering">Engineering Expertise</a>
-        <a href="#manufacturing">Manufacturing Capability</a>
-        <a href="#execution">Project Execution</a>
-        <a href="#installation">Installation</a>
-        <a href="#commissioning">Commissioning</a>
-        <a href="#support">Technical Support</a>
-        <a href="#numbers">AWFTEX in Numbers</a>
+              <a href="#solutions">Industrial Engineering</a>
+              <a href="#capabilities">Fabrication</a>
+              <a href="#execution">Plant Installation</a>
+              <a href="#execution">Commissioning</a>
+              <a href="#solutions">MEP Engineering</a>
 
-      </div>
+            </div>
 
 
-      <div class="menu-column">
+            <div class="mega-column">
 
-        <h3>Resources</h3>
+              <h4>Infrastructure</h4>
 
-        <a href="#insights">Engineering Insights</a>
-        <a href="#blogs">Blogs</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#brochures">Product Brochures</a>
-        <a href="#company-profile">Company Profile</a>
-        <a href="#downloads">Downloads</a>
-        <a href="#faqs">FAQs</a>
+              <a href="#solutions">Fire & Safety</a>
+              <a href="#solutions">Security Solutions</a>
+              <a href="#solutions">Water Treatment</a>
+              <a href="#solutions">Air Purification</a>
+              <a href="#solutions">Solar Energy</a>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
+
+
+      <a href="#industries">
+        Industries
+      </a>
+
+      <a href="#projects">
+        Projects
+      </a>
+
+      <a href="#why">
+        Why AWFTEX
+      </a>
+
+      <a href="#insights">
+        Insights
+      </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+      <a
+        class="header-phone"
+        href="tel:+919915601687">
+        +91 9915601687
+      </a>
+
+      <a
+        class="header-cta"
+        href="#contact">
+        START A PROJECT
+      </a>
 
     </div>
 
 
-    <div class="mega-menu-bottom">
+    <button
+      class="mobile-toggle"
+      id="mobileToggle"
+      aria-label="Open menu">
 
-      <div class="menu-bottom-text">
+      <span></span>
 
-        <span>Have an engineering project?</span>
+    </button>
 
-        <strong>Let's build it together.</strong>
+  </div>
 
-      </div>
 
-      <div class="menu-actions">
+  <div
+    class="mobile-menu"
+    id="mobileMenu">
 
-        <a
-          href="#contact"
-          class="menu-contact">
-          Contact Us
-        </a>
-
-        <a
-          href="https://wa.me/919915601687?text=Hello%20AWFTEX%20Industries%2C%20I%20would%20like%20to%20discuss%20an%20engineering%20project."
-          target="_blank"
-          class="menu-whatsapp">
-
-          Discuss Your Project
-          <span>→</span>
-
-        </a>
-
-      </div>
-
-    </div>
+    <a href="#about">Company</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#industries">Industries</a>
+    <a href="#projects">Projects</a>
+    <a href="#why">Why AWFTEX</a>
+    <a href="#insights">Insights</a>
+    <a href="#contact">Contact Us</a>
 
   </div>
 
 </header>
 
 
+
 <!-- =========================================================
      HERO
      ========================================================= -->
 
+<main>
+
 <section class="hero">
 
-  <div class="hero-content">
+  <div class="hero-background"></div>
 
-    <div class="eyebrow">
-      <span></span>
-      INTEGRATED ENGINEERING & INDUSTRIAL SOLUTIONS
-    </div>
+  <div class="container">
 
-    <h1>
-      Engineering Solutions
-      <strong>That Move Industries Forward.</strong>
-    </h1>
+    <div class="hero-content reveal">
 
-    <p>
-      AWFTEX Industries delivers integrated engineering,
-      manufacturing, fabrication, installation and commissioning
-      solutions across dairy, industrial, MEP, fire safety,
-      security, water, air purification and solar energy.
-    </p>
-
-    <div class="actions">
-
-      <a
-        href="#contact"
-        class="btn btn-primary">
-        Discuss Your Project
-      </a>
-
-      <a
-        href="#solutions"
-        class="btn btn-outline">
-        Explore Our Solutions
-      </a>
-
-    </div>
-
-
-    <div class="hero-capabilities">
-
-      <div class="hero-capability">
-        <strong>Engineering</strong>
-        <span>Design & Solutions</span>
+      <div class="hero-eyebrow">
+        <span></span>
+        INTEGRATED ENGINEERING & INDUSTRIAL SOLUTIONS
       </div>
 
-      <div class="hero-capability">
-        <strong>Manufacturing</strong>
-        <span>Fabrication & Equipment</span>
+
+      <h1>
+        Engineering Solutions
+        <strong>That Move Industries Forward.</strong>
+      </h1>
+
+
+      <p class="hero-description">
+        AWFTEX Industries delivers integrated engineering,
+        manufacturing, fabrication, installation and commissioning
+        solutions across dairy, industrial, MEP, fire safety,
+        security, water, air purification and solar energy.
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          href="#contact"
+          class="btn btn-primary">
+          Discuss Your Project
+        </a>
+
+        <a
+          href="#solutions"
+          class="btn btn-light">
+          Explore Our Solutions
+        </a>
+
       </div>
 
-      <div class="hero-capability">
-        <strong>Installation</strong>
-        <span>Site Execution</span>
-      </div>
 
-      <div class="hero-capability">
-        <strong>Commissioning</strong>
-        <span>Project Completion</span>
+      <div class="hero-trust">
+
+        <div class="trust-item">
+          <b>Engineering</b>
+          <small>Design & Solutions</small>
+        </div>
+
+        <div class="trust-item">
+          <b>Manufacturing</b>
+          <small>Fabrication & Equipment</small>
+        </div>
+
+        <div class="trust-item">
+          <b>Installation</b>
+          <small>Site Execution</small>
+        </div>
+
+        <div class="trust-item">
+          <b>Commissioning</b>
+          <small>Project Completion</small>
+        </div>
+
       </div>
 
     </div>
@@ -1785,6 +1861,7 @@ a{
   </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1792,48 +1869,78 @@ a{
      ========================================================= -->
 
 <section
-  class="section"
+  class="section about"
   id="about">
 
-  <div class="container about-grid">
+  <div class="container">
 
-    <div class="about-image"></div>
+    <div class="about-grid">
 
-    <div class="about-content">
+      <div class="about-image reveal">
 
-      <div class="section-label">
-        ABOUT AWFTEX
+        <div class="about-label">
+          ENGINEERING • MANUFACTURING • PROJECT EXECUTION
+        </div>
+
       </div>
 
-      <h2>
-        One Engineering Partner.
-        Multiple Industrial Capabilities.
-      </h2>
 
-      <p>
-        AWFTEX Industries is an integrated engineering and
-        industrial solutions company delivering equipment,
-        engineering, fabrication, installation and commissioning
-        services for diverse industrial and infrastructure
-        requirements.
-      </p>
+      <div class="about-copy reveal">
 
-      <p>
-        From dairy processing plants and industrial equipment
-        to MEP systems, fire safety, security, water treatment,
-        air purification and solar energy, our objective is to
-        provide dependable solutions through one coordinated
-        engineering partner.
-      </p>
+        <div class="eyebrow">
+          ABOUT AWFTEX
+        </div>
 
-      <div class="about-list">
+        <h2 class="section-title">
+          One Engineering Partner.
+          Multiple Industrial Capabilities.
+        </h2>
 
-        <div>Engineering & Design</div>
-        <div>Manufacturing</div>
-        <div>Industrial Fabrication</div>
-        <div>Installation & Execution</div>
-        <div>Plant Commissioning</div>
-        <div>Turnkey Solutions</div>
+        <p class="section-subtitle">
+          AWFTEX Industries brings together engineering,
+          manufacturing, fabrication and project execution
+          capabilities to deliver practical solutions for
+          modern industrial and infrastructure requirements.
+        </p>
+
+        <p>
+          From dairy processing equipment and complete plants
+          to MEP systems, fire safety, security, water treatment,
+          air purification, solar and industrial projects,
+          our approach is built around understanding the
+          application and delivering a solution that works
+          in the real world.
+        </p>
+
+        <div class="about-points">
+
+          <div class="about-point">
+            <b>Multi-Disciplinary</b>
+            <span>Engineering expertise across multiple sectors.</span>
+          </div>
+
+          <div class="about-point">
+            <b>End-to-End</b>
+            <span>From engineering through commissioning.</span>
+          </div>
+
+          <div class="about-point">
+            <b>Custom Solutions</b>
+            <span>Designed around project requirements.</span>
+          </div>
+
+          <div class="about-point">
+            <b>Project Focused</b>
+            <span>Built around execution and performance.</span>
+          </div>
+
+        </div>
+
+        <a
+          href="#contact"
+          class="section-link">
+          Know More About AWFTEX
+        </a>
 
       </div>
 
@@ -1842,6 +1949,7 @@ a{
   </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1849,189 +1957,272 @@ a{
      ========================================================= -->
 
 <section
-  class="section section-light"
+  class="section solutions"
   id="solutions">
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-head reveal">
 
-      <div class="section-label">
-        OUR SOLUTIONS
+      <div class="eyebrow">
+        WHAT WE DO
       </div>
 
       <h2 class="section-title">
         Integrated Solutions
-        Across Industries
+        For Industry & Infrastructure.
       </h2>
 
-      <p class="section-description">
-        From individual equipment to complete industrial
-        projects, AWFTEX brings engineering, manufacturing
-        and execution capabilities together.
+      <p class="section-subtitle">
+        Specialized capabilities brought together under
+        one engineering partner.
       </p>
 
     </div>
 
 
-    <div class="solutions-grid">
+    <div class="solution-grid">
 
 
-      <div class="solution-card" id="dairy">
+      <article
+        class="solution-card reveal"
+        style="--solution-image:url('images/dairy/awftex-firstimage.png')">
 
         <span class="solution-number">01</span>
 
-        <h3>
-          Dairy & Food
-          Processing
-        </h3>
+        <div class="solution-content">
 
-        <p>
-          Dairy machinery, milk processing equipment,
-          pasteurizers, paneer plants, khoya machines,
-          ghee plants, curd systems and complete dairy plants.
-        </p>
+          <h3>
+            Dairy & Food Processing
+          </h3>
 
-        <span class="solution-arrow">→</span>
+          <p>
+            Dairy machinery, milk processing equipment,
+            processing systems and complete dairy plants.
+          </p>
 
-      </div>
+          <a href="#dairy">
+            Explore Solution →
+          </a>
+
+        </div>
+
+      </article>
 
 
-      <div class="solution-card" id="industrial">
+      <article
+        class="solution-card reveal"
+        style="--solution-image:url('images/dairy/awftex-firstimage.png')">
 
         <span class="solution-number">02</span>
 
-        <h3>
-          Industrial
-          Engineering
-        </h3>
+        <div class="solution-content">
 
-        <p>
-          Industrial systems, process equipment,
-          plant engineering, heavy fabrication and
-          custom industrial solutions.
-        </p>
+          <h3>
+            Industrial Engineering
+          </h3>
 
-        <span class="solution-arrow">→</span>
+          <p>
+            Industrial equipment, engineering, fabrication,
+            plant systems and custom solutions.
+          </p>
 
-      </div>
+          <a href="#capabilities">
+            Explore Solution →
+          </a>
+
+        </div>
+
+      </article>
 
 
-      <div class="solution-card" id="mep">
+      <article
+        class="solution-card reveal"
+        style="--solution-image:url('images/dairy/awftex-firstimage.png')">
 
         <span class="solution-number">03</span>
 
-        <h3>
-          MEP
-          Services
-        </h3>
+        <div class="solution-content">
 
-        <p>
-          Mechanical, electrical, plumbing, HVAC and
-          integrated MEP engineering solutions for
-          industrial and commercial facilities.
-        </p>
+          <h3>
+            MEP Engineering
+          </h3>
 
-        <span class="solution-arrow">→</span>
+          <p>
+            Mechanical, electrical, plumbing, HVAC and
+            integrated building engineering services.
+          </p>
 
-      </div>
+          <a href="#execution">
+            Explore Solution →
+          </a>
+
+        </div>
+
+      </article>
 
 
-      <div class="solution-card" id="fabrication">
+      <article
+        class="solution-card reveal"
+        style="--solution-image:url('images/dairy/awftex-firstimage.png')">
 
         <span class="solution-number">04</span>
 
-        <h3>
-          Fabrication &
-          Manufacturing
-        </h3>
+        <div class="solution-content">
 
-        <p>
-          Heavy fabrication, equipment manufacturing,
-          custom structures and engineered industrial
-          components.
-        </p>
+          <h3>
+            Fire, Safety & Security
+          </h3>
 
-        <span class="solution-arrow">→</span>
+          <p>
+            Fire protection, detection, safety,
+            surveillance and integrated security systems.
+          </p>
 
-      </div>
+          <a href="#contact">
+            Explore Solution →
+          </a>
+
+        </div>
+
+      </article>
 
 
-      <div class="solution-card" id="fire">
+      <article
+        class="solution-card reveal"
+        style="--solution-image:url('images/dairy/awftex-firstimage.png')">
 
         <span class="solution-number">05</span>
 
-        <h3>
-          Fire Safety &
-          Security
-        </h3>
+        <div class="solution-content">
 
-        <p>
-          Fire protection, safety systems, surveillance
-          and security solutions for industrial and
-          commercial environments.
-        </p>
+          <h3>
+            Water & Air Solutions
+          </h3>
 
-        <span class="solution-arrow">→</span>
+          <p>
+            Water treatment, purification, wastewater,
+            air purification and environmental solutions.
+          </p>
 
-      </div>
+          <a href="#contact">
+            Explore Solution →
+          </a>
+
+        </div>
+
+      </article>
 
 
-      <div class="solution-card" id="water">
+      <article
+        class="solution-card reveal"
+        style="--solution-image:url('images/dairy/awftex-firstimage.png')">
 
         <span class="solution-number">06</span>
 
-        <h3>
-          Water
-          Treatment
-        </h3>
+        <div class="solution-content">
 
-        <p>
-          Water purification, treatment systems and
-          industrial water management solutions.
+          <h3>
+            Energy & Solar
+          </h3>
+
+          <p>
+            Solar power systems, industrial energy solutions
+            and renewable-energy integration.
+          </p>
+
+          <a href="#contact">
+            Explore Solution →
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EXECUTION
+     ========================================================= -->
+
+<section
+  class="section execution"
+  id="execution">
+
+  <div class="container">
+
+    <div class="execution-grid">
+
+      <div class="reveal">
+
+        <div class="eyebrow">
+          PROJECT EXECUTION
+        </div>
+
+        <h2 class="section-title">
+          From Concept
+          To Commissioning.
+        </h2>
+
+        <p class="section-subtitle">
+          AWFTEX can support projects across multiple stages,
+          helping customers reduce coordination between
+          different engineering and execution partners.
         </p>
 
-        <span class="solution-arrow">→</span>
+        <a
+          href="#contact"
+          class="section-link"
+          style="color:#fff;">
+          Discuss Your Project
+        </a>
 
       </div>
 
 
-      <div class="solution-card" id="air">
+      <div class="process reveal">
 
-        <span class="solution-number">07</span>
+        <div class="process-step">
+          <span>01</span>
+          <h4>Engineering</h4>
+          <p>Requirement analysis, planning and engineering.</p>
+        </div>
 
-        <h3>
-          Air
-          Purification
-        </h3>
+        <div class="process-step">
+          <span>02</span>
+          <h4>Design</h4>
+          <p>Solution development and technical detailing.</p>
+        </div>
 
-        <p>
-          Air purification, ventilation and indoor
-          air quality solutions for industrial
-          and commercial environments.
-        </p>
+        <div class="process-step">
+          <span>03</span>
+          <h4>Manufacturing</h4>
+          <p>Equipment manufacturing and production.</p>
+        </div>
 
-        <span class="solution-arrow">→</span>
+        <div class="process-step">
+          <span>04</span>
+          <h4>Fabrication</h4>
+          <p>Industrial fabrication and site requirements.</p>
+        </div>
 
-      </div>
+        <div class="process-step">
+          <span>05</span>
+          <h4>Installation</h4>
+          <p>Equipment erection and project installation.</p>
+        </div>
 
-
-      <div class="solution-card" id="solar">
-
-        <span class="solution-number">08</span>
-
-        <h3>
-          Energy &
-          Solar
-        </h3>
-
-        <p>
-          Solar energy systems and renewable energy
-          solutions designed for efficient and
-          sustainable operations.
-        </p>
-
-        <span class="solution-arrow">→</span>
+        <div class="process-step">
+          <span>06</span>
+          <h4>Commissioning</h4>
+          <p>Testing, commissioning and project handover.</p>
+        </div>
 
       </div>
 
@@ -2040,6 +2231,70 @@ a{
   </div>
 
 </section>
+
+
+
+<!-- =========================================================
+     DAIRY
+     ========================================================= -->
+
+<section
+  class="section dairy"
+  id="dairy">
+
+  <div class="container">
+
+    <div class="dairy-grid">
+
+      <div class="dairy-visual reveal"></div>
+
+
+      <div class="reveal">
+
+        <div class="eyebrow">
+          DAIRY & FOOD PROCESSING
+        </div>
+
+        <h2 class="section-title">
+          Complete Solutions
+          For Modern Dairy Operations.
+        </h2>
+
+        <p class="section-subtitle">
+          From individual dairy equipment to complete processing
+          plant solutions, AWFTEX supports dairy businesses with
+          practical engineering and manufacturing capabilities.
+        </p>
+
+        <div class="product-list">
+
+          <a href="#">Bulk Milk Coolers</a>
+          <a href="#">Milk Pasteurizers</a>
+          <a href="#">Milk Silos</a>
+          <a href="#">Paneer Plants</a>
+          <a href="#">Curd Processing</a>
+          <a href="#">Khoya Machines</a>
+          <a href="#">Ghee Plants</a>
+          <a href="#">Homogenizers</a>
+          <a href="#">Milk Vending Systems</a>
+          <a href="#">Complete Dairy Plants</a>
+
+        </div>
+
+        <a
+          href="#contact"
+          class="section-link">
+          Explore Dairy Solutions
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 
 <!-- =========================================================
@@ -2047,364 +2302,102 @@ a{
      ========================================================= -->
 
 <section
-  class="section"
+  class="section capabilities"
   id="capabilities">
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-head reveal">
 
-      <div class="section-label">
+      <div class="eyebrow">
         OUR CAPABILITIES
       </div>
 
       <h2 class="section-title">
-        From Engineering
-        to Execution
-      </h2>
-
-      <p class="section-description">
-        AWFTEX combines technical expertise, manufacturing
-        capability and field execution to deliver complete
-        project solutions.
-      </p>
-
-    </div>
-
-
-    <div class="capabilities-grid">
-
-      <div class="capability" id="engineering">
-
-        <span>01</span>
-
-        <h3>Engineering & Design</h3>
-
-        <p>
-          Concept development, technical design,
-          system planning and engineering solutions.
-        </p>
-
-      </div>
-
-
-      <div class="capability" id="manufacturing">
-
-        <span>02</span>
-
-        <h3>Manufacturing</h3>
-
-        <p>
-          Equipment manufacturing and engineered
-          industrial systems.
-        </p>
-
-      </div>
-
-
-      <div class="capability">
-
-        <span>03</span>
-
-        <h3>Fabrication</h3>
-
-        <p>
-          Heavy industrial fabrication and
-          custom engineered structures.
-        </p>
-
-      </div>
-
-
-      <div class="capability" id="execution">
-
-        <span>04</span>
-
-        <h3>Site Execution</h3>
-
-        <p>
-          Coordinated installation and project
-          execution at site.
-        </p>
-
-      </div>
-
-
-      <div class="capability" id="installation">
-
-        <span>05</span>
-
-        <h3>Installation</h3>
-
-        <p>
-          Professional equipment and system
-          installation.
-        </p>
-
-      </div>
-
-
-      <div class="capability" id="commissioning">
-
-        <span>06</span>
-
-        <h3>Commissioning</h3>
-
-        <p>
-          Testing, commissioning and operational
-          handover.
-        </p>
-
-      </div>
-
-
-      <div class="capability">
-
-        <span>07</span>
-
-        <h3>Turnkey Projects</h3>
-
-        <p>
-          Integrated project responsibility from
-          engineering to completion.
-        </p>
-
-      </div>
-
-
-      <div class="capability">
-
-        <span>08</span>
-
-        <h3>Technical Support</h3>
-
-        <p>
-          Technical assistance and support for
-          installed systems and equipment.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROJECTS
-     ========================================================= -->
-
-<section
-  class="section section-light"
-  id="projects">
-
-  <div class="container">
-
-    <div class="section-header">
-
-      <div class="section-label">
-        PROJECTS
-      </div>
-
-      <h2 class="section-title">
-        Engineering Built
-        for Real-World Performance
-      </h2>
-
-      <p class="section-description">
-        Every project is approached with engineering
-        discipline, practical execution and long-term
-        operational performance in mind.
-      </p>
-
-    </div>
-
-
-    <div class="projects-grid">
-
-
-      <div class="project">
-
-        <div class="project-image"></div>
-
-        <div class="project-content">
-
-          <span>Dairy & Food Processing</span>
-
-          <h3>
-            Complete Dairy
-            Processing Solutions
-          </h3>
-
-        </div>
-
-      </div>
-
-
-      <div class="project">
-
-        <div class="project-image"></div>
-
-        <div class="project-content">
-
-          <span>Industrial</span>
-
-          <h3>
-            Industrial Engineering
-            & Fabrication
-          </h3>
-
-        </div>
-
-      </div>
-
-
-      <div class="project">
-
-        <div class="project-image"></div>
-
-        <div class="project-content">
-
-          <span>Infrastructure</span>
-
-          <h3>
-            Integrated MEP,
-            Safety & Energy
-          </h3>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     WHY AWFTEX
-     ========================================================= -->
-
-<section
-  class="section"
-  id="why">
-
-  <div class="container">
-
-    <div class="section-header">
-
-      <div class="section-label">
-        WHY AWFTEX
-      </div>
-
-      <h2 class="section-title">
         Built Around
-        Engineering Confidence
+        Real Project Requirements.
       </h2>
 
+      <p class="section-subtitle">
+        Engineering and execution capabilities supporting
+        industrial, commercial and infrastructure projects.
+      </p>
+
     </div>
 
 
-    <div class="why-grid">
+    <div class="capability-grid">
 
-      <div class="why-card">
-
-        <span>01</span>
-
-        <h3>
-          Integrated Expertise
-        </h3>
-
+      <div class="capability reveal">
+        <div class="capability-icon">⚙</div>
+        <h3>Engineering</h3>
         <p>
-          Multiple engineering and industrial
-          capabilities under one coordinated partner.
+          Technical planning and solution development
+          around application requirements.
         </p>
-
       </div>
 
-
-      <div class="why-card">
-
-        <span>02</span>
-
-        <h3>
-          End-to-End Execution
-        </h3>
-
+      <div class="capability reveal">
+        <div class="capability-icon">⌁</div>
+        <h3>Fabrication</h3>
         <p>
-          Engineering, manufacturing, installation
-          and commissioning connected through one
-          project approach.
+          Industrial fabrication and customized
+          equipment structures.
         </p>
-
       </div>
 
-
-      <div class="why-card">
-
-        <span>03</span>
-
-        <h3>
-          Practical Engineering
-        </h3>
-
+      <div class="capability reveal">
+        <div class="capability-icon">▣</div>
+        <h3>Manufacturing</h3>
         <p>
-          Solutions designed around real operating
-          conditions, reliability and maintainability.
+          Manufacturing of industrial and dairy
+          processing equipment.
         </p>
-
       </div>
 
-
-      <div class="why-card">
-
-        <span>04</span>
-
-        <h3>
-          Diverse Industries
-        </h3>
-
+      <div class="capability reveal">
+        <div class="capability-icon">↗</div>
+        <h3>Plant Installation</h3>
         <p>
-          Experience across dairy, industrial,
-          infrastructure, energy and facility systems.
+          Equipment erection, installation and
+          site execution.
         </p>
-
       </div>
 
-
-      <div class="why-card">
-
-        <span>05</span>
-
-        <h3>
-          Project Responsibility
-        </h3>
-
+      <div class="capability reveal">
+        <div class="capability-icon">✓</div>
+        <h3>Commissioning</h3>
         <p>
-          A single engineering partner can simplify
-          coordination across multiple project disciplines.
+          Testing, startup support and commissioning
+          of systems and plants.
         </p>
-
       </div>
 
-
-      <div class="why-card" id="support">
-
-        <span>06</span>
-
-        <h3>
-          Long-Term Support
-        </h3>
-
+      <div class="capability reveal">
+        <div class="capability-icon">◈</div>
+        <h3>MEP Services</h3>
         <p>
-          Technical support focused on continued
-          operational performance.
+          Integrated mechanical, electrical,
+          plumbing and HVAC solutions.
         </p>
+      </div>
 
+      <div class="capability reveal">
+        <div class="capability-icon">♢</div>
+        <h3>Project Coordination</h3>
+        <p>
+          Coordinated execution across multiple
+          engineering disciplines.
+        </p>
+      </div>
+
+      <div class="capability reveal">
+        <div class="capability-icon">+</div>
+        <h3>Technical Support</h3>
+        <p>
+          Technical assistance and support throughout
+          the project lifecycle.
+        </p>
       </div>
 
     </div>
@@ -2413,78 +2406,6 @@ a{
 
 </section>
 
-
-<!-- =========================================================
-     NUMBERS
-     ========================================================= -->
-
-<section
-  class="numbers"
-  id="numbers">
-
-  <div class="container">
-
-    <div class="numbers-grid">
-
-      <div class="number">
-
-        <strong>10+</strong>
-
-        <span>
-          Solution Categories
-        </span>
-
-      </div>
-
-
-      <div class="number">
-
-        <strong>Pan</strong>
-
-        <span>
-          India Reach
-        </span>
-
-      </div>
-
-
-      <div class="number">
-
-        <strong>360°</strong>
-
-        <span>
-          Project Approach
-        </span>
-
-      </div>
-
-
-      <div class="number">
-
-        <strong>End</strong>
-
-        <span>
-          To End Solutions
-        </span>
-
-      </div>
-
-
-      <div class="number">
-
-        <strong>1</strong>
-
-        <span>
-          Engineering Partner
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
 
 
 <!-- =========================================================
@@ -2492,75 +2413,465 @@ a{
      ========================================================= -->
 
 <section
-  class="section"
+  class="section industries"
   id="industries">
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-head reveal">
 
-      <div class="section-label">
-        INDUSTRIES
+      <div class="eyebrow">
+        INDUSTRIES WE SERVE
       </div>
 
       <h2 class="section-title">
-        Solutions Designed
-        for Diverse Industries
+        Engineering Across
+        Diverse Industries.
       </h2>
 
     </div>
 
 
-    <div class="solutions-grid">
+    <div class="industry-grid">
 
-      <div class="solution-card" id="dairy-industry">
-
-        <span class="solution-number">01</span>
-
+      <div class="industry reveal">
+        <span>01</span>
         <h3>Dairy & Milk Processing</h3>
-
-        <p>
-          Processing equipment and complete dairy plant solutions.
-        </p>
-
       </div>
 
-
-      <div class="solution-card" id="food-industry">
-
-        <span class="solution-number">02</span>
-
+      <div class="industry reveal">
+        <span>02</span>
         <h3>Food Processing</h3>
-
-        <p>
-          Industrial processing equipment and facility solutions.
-        </p>
-
       </div>
 
+      <div class="industry reveal">
+        <span>03</span>
+        <h3>Agriculture & Agro Processing</h3>
+      </div>
 
-      <div class="solution-card" id="manufacturing">
-
-        <span class="solution-number">03</span>
-
+      <div class="industry reveal">
+        <span>04</span>
         <h3>Manufacturing</h3>
+      </div>
 
-        <p>
-          Engineering, fabrication and industrial systems.
+      <div class="industry reveal">
+        <span>05</span>
+        <h3>Industrial Plants</h3>
+      </div>
+
+      <div class="industry reveal">
+        <span>06</span>
+        <h3>Warehousing & Cold Chain</h3>
+      </div>
+
+      <div class="industry reveal">
+        <span>07</span>
+        <h3>Commercial Facilities</h3>
+      </div>
+
+      <div class="industry reveal">
+        <span>08</span>
+        <h3>Infrastructure</h3>
+      </div>
+
+      <div class="industry reveal">
+        <span>09</span>
+        <h3>Energy & Utilities</h3>
+      </div>
+
+      <div class="industry reveal">
+        <span>10</span>
+        <h3>Institutional Projects</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECTS
+     ========================================================= -->
+
+<section
+  class="section projects"
+  id="projects">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div class="eyebrow">
+        PROJECT PORTFOLIO
+      </div>
+
+      <h2 class="section-title">
+        Solutions Delivered
+        In The Real World.
+      </h2>
+
+      <p class="section-subtitle">
+        Showcase your completed projects, installations
+        and turnkey executions here.
+      </p>
+
+    </div>
+
+
+    <div class="project-grid">
+
+      <article
+        class="project-card reveal"
+        style="--project-image:url('images/dairy/awftex-firstimage.png')">
+
+        <div class="project-info">
+
+          <span>Dairy Processing</span>
+
+          <h3>
+            Complete Dairy Processing Project
+          </h3>
+
+          <p>
+            Engineering, equipment supply,
+            installation and commissioning.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article
+        class="project-card small reveal"
+        style="--project-image:url('images/dairy/awftex-firstimage.png')">
+
+        <div class="project-info">
+
+          <span>Industrial</span>
+
+          <h3>
+            Industrial Engineering
+          </h3>
+
+          <p>
+            Fabrication and project execution.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article
+        class="project-card small reveal"
+        style="--project-image:url('images/dairy/awftex-firstimage.png')">
+
+        <div class="project-info">
+
+          <span>Utilities</span>
+
+          <h3>
+            Water & Energy Solution
+          </h3>
+
+          <p>
+            Integrated infrastructure solution.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <a
+      href="#contact"
+      class="section-link">
+      View All Projects
+    </a>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY AWFTEX
+     ========================================================= -->
+
+<section
+  class="section why"
+  id="why">
+
+  <div class="container">
+
+    <div class="why-grid">
+
+      <div class="reveal">
+
+        <div class="eyebrow">
+          WHY AWFTEX
+        </div>
+
+        <h2 class="section-title">
+          Engineering With
+          Responsibility.
+        </h2>
+
+        <p class="section-subtitle">
+          We focus on practical engineering, reliable
+          execution and long-term customer relationships.
         </p>
+
+
+        <div class="why-list">
+
+          <div class="why-item">
+
+            <div class="why-number">
+              01
+            </div>
+
+            <div>
+              <h3>
+                Multi-Disciplinary Expertise
+              </h3>
+
+              <p>
+                Multiple technical disciplines brought
+                together through one engineering partner.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="why-item">
+
+            <div class="why-number">
+              02
+            </div>
+
+            <div>
+              <h3>
+                End-to-End Execution
+              </h3>
+
+              <p>
+                Engineering, manufacturing, fabrication,
+                installation and commissioning.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="why-item">
+
+            <div class="why-number">
+              03
+            </div>
+
+            <div>
+              <h3>
+                Application-Focused Solutions
+              </h3>
+
+              <p>
+                Solutions developed around actual process,
+                capacity, site and operational requirements.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="why-item">
+
+            <div class="why-number">
+              04
+            </div>
+
+            <div>
+              <h3>
+                Long-Term Partnership
+              </h3>
+
+              <p>
+                Technical support and relationship-driven
+                service beyond project delivery.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
 
-      <div class="solution-card" id="industrial-plants">
+      <div class="why-image reveal"></div>
 
-        <span class="solution-number">04</span>
+    </div>
 
-        <h3>Industrial Plants</h3>
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     NUMBERS
+     ========================================================= -->
+
+<section
+  class="section numbers"
+  id="numbers">
+
+  <div class="container">
+
+    <div class="numbers-head reveal">
+
+      <div class="eyebrow">
+        AWFTEX AT A GLANCE
+      </div>
+
+      <h2 class="section-title">
+        Built For Ambition.
+        Driven By Engineering.
+      </h2>
+
+    </div>
+
+
+    <div class="numbers-grid">
+
+      <div class="number reveal">
+        <strong>10+</strong>
+        <span>Engineering Solution Areas</span>
+      </div>
+
+      <div class="number reveal">
+        <strong>Pan</strong>
+        <span>India Project Support</span>
+      </div>
+
+      <div class="number reveal">
+        <strong>360°</strong>
+        <span>Project Execution Capability</span>
+      </div>
+
+      <div class="number reveal">
+        <strong>24/7</strong>
+        <span>Business Commitment</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TRUST
+     ========================================================= -->
+
+<section
+  class="section trust"
+  id="trust">
+
+  <div class="container">
+
+    <div class="trust-grid">
+
+      <div class="trust-box reveal">
+
+        <div class="eyebrow">
+          TRUST & CREDIBILITY
+        </div>
+
+        <h3>
+          A Partner For Long-Term Growth.
+        </h3>
 
         <p>
-          Plant engineering, installation and commissioning.
+          AWFTEX combines engineering capability,
+          manufacturing and project execution to
+          support customers across diverse applications.
         </p>
+
+
+        <div class="trust-badges">
+
+          <div class="trust-badge">
+            <b>MSME</b>
+            <span>Registered Enterprise</span>
+          </div>
+
+          <div class="trust-badge">
+            <b>GeM</b>
+            <span>Registered Seller</span>
+          </div>
+
+          <div class="trust-badge">
+            <b>Pan India</b>
+            <span>Supply & Support</span>
+          </div>
+
+          <div class="trust-badge">
+            <b>Engineering</b>
+            <span>Integrated Solutions</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="reveal">
+
+        <div class="eyebrow">
+          CLIENTS
+        </div>
+
+        <h2 class="section-title">
+          Trusted By
+          Businesses & Industries.
+        </h2>
+
+        <p class="section-subtitle">
+          Add your actual client logos here as your
+          corporate client portfolio grows.
+        </p>
+
+
+        <div class="client-strip">
+
+          <div class="client-placeholder">
+            CLIENT
+          </div>
+
+          <div class="client-placeholder">
+            CLIENT
+          </div>
+
+          <div class="client-placeholder">
+            CLIENT
+          </div>
+
+          <div class="client-placeholder">
+            CLIENT
+          </div>
+
+        </div>
 
       </div>
 
@@ -2569,6 +2880,7 @@ a{
   </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -2576,79 +2888,118 @@ a{
      ========================================================= -->
 
 <section
-  class="section section-light"
+  class="section insights"
   id="insights">
 
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-head reveal">
 
-      <div class="section-label">
-        INSIGHTS
+      <div class="eyebrow">
+        ENGINEERING INSIGHTS
       </div>
 
       <h2 class="section-title">
-        Engineering Thinking
-        for a Changing Industry
+        Knowledge That Helps
+        Industry Move Forward.
       </h2>
 
-      <p class="section-description">
-        Perspectives on engineering, industrial systems,
-        technology and the future of integrated project delivery.
+      <p class="section-subtitle">
+        Publish technical articles, project stories,
+        engineering guides and industry insights.
       </p>
 
     </div>
 
 
-    <div class="insights-grid">
+    <div class="insight-grid">
 
-      <article class="insight">
+      <article class="insight reveal">
 
-        <span>Engineering</span>
+        <div class="insight-image"></div>
 
-        <h3>
-          Why Integrated Engineering
-          Is Becoming More Important
-        </h3>
+        <div class="insight-body">
 
-        <p>
-          Modern projects increasingly require
-          multiple disciplines to work together.
-        </p>
+          <span>
+            Dairy Engineering
+          </span>
 
-      </article>
+          <h3>
+            How To Plan A Modern Dairy Processing Plant
+          </h3>
 
+          <p>
+            Key considerations when planning capacity,
+            equipment, utilities and plant execution.
+          </p>
 
-      <article class="insight">
+          <a
+            href="#"
+            class="section-link">
+            Read Article
+          </a>
 
-        <span>Industrial</span>
-
-        <h3>
-          The Future of Industrial
-          Plant Execution
-        </h3>
-
-        <p>
-          Engineering, fabrication and commissioning
-          are becoming increasingly connected.
-        </p>
+        </div>
 
       </article>
 
 
-      <article class="insight">
+      <article class="insight reveal">
 
-        <span>Technology</span>
+        <div class="insight-image"></div>
 
-        <h3>
-          Building More Efficient
-          Industrial Infrastructure
-        </h3>
+        <div class="insight-body">
 
-        <p>
-          Efficiency increasingly depends on
-          integrated systems rather than individual equipment.
-        </p>
+          <span>
+            Industrial Engineering
+          </span>
+
+          <h3>
+            Why Integrated Project Execution Matters
+          </h3>
+
+          <p>
+            Understanding the value of coordinated
+            engineering, fabrication and commissioning.
+          </p>
+
+          <a
+            href="#"
+            class="section-link">
+            Read Article
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="insight reveal">
+
+        <div class="insight-image"></div>
+
+        <div class="insight-body">
+
+          <span>
+            Energy
+          </span>
+
+          <h3>
+            Industrial Solar Solutions And Energy Planning
+          </h3>
+
+          <p>
+            Exploring renewable-energy integration
+            for modern industrial facilities.
+          </p>
+
+          <a
+            href="#"
+            class="section-link">
+            Read Article
+          </a>
+
+        </div>
 
       </article>
 
@@ -2657,104 +3008,50 @@ a{
   </div>
 
 </section>
+
 
 
 <!-- =========================================================
-     CONTACT
+     FINAL CTA
      ========================================================= -->
 
 <section
-  class="section contact"
+  class="final-cta"
   id="contact">
 
-  <div class="container contact-grid">
+  <div class="container">
 
-    <div>
+    <div class="final-cta-inner reveal">
 
-      <div class="section-label">
-        START A PROJECT
+      <div class="eyebrow">
+        START YOUR PROJECT
       </div>
 
       <h2>
-        Let's Build
-        Something Better.
+        Have An Engineering
+        Project In Mind?
       </h2>
 
       <p>
-        Tell us about your engineering requirement,
-        plant, equipment or infrastructure project.
-        Our team can discuss the right solution with you.
+        Tell us about your requirement, capacity,
+        application or project. Our team can help
+        identify the right engineering approach.
       </p>
 
-      <div class="contact-actions">
+
+      <div class="hero-actions">
 
         <a
-          href="https://wa.me/919915601687?text=Hello%20AWFTEX%20Industries%2C%20I%20would%20like%20to%20discuss%20a%20project."
-          target="_blank"
-          class="btn btn-primary">
-          Discuss on WhatsApp
+          class="btn btn-primary"
+          href="https://wa.me/919915601687?text=Hello%20AWFTEX%20Industries%2C%20I%20would%20like%20to%20discuss%20an%20engineering%20project.">
+          WhatsApp AWFTEX
         </a>
 
         <a
-          href="mailto:office@awftex.com"
-          class="btn"
-          style="border:1px solid #ccd9e2;color:#102236;">
-          Send an Email
+          class="btn btn-light"
+          href="mailto:awftex@gmail.com">
+          Send An Enquiry
         </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="contact-card">
-
-      <div class="contact-item">
-
-        <small>Company</small>
-
-        <strong>
-          AWFTEX Industries
-        </strong>
-
-      </div>
-
-
-      <div class="contact-item">
-
-        <small>Phone</small>
-
-        <strong>
-          <a href="tel:+919915601687">
-            +91 9915601687
-          </a>
-        </strong>
-
-      </div>
-
-
-      <div class="contact-item">
-
-        <small>Email</small>
-
-        <strong>
-          <a href="mailto:office@awftex.com">
-            office@awftex.com
-          </a>
-        </strong>
-
-      </div>
-
-
-      <div class="contact-item">
-
-        <small>Website</small>
-
-        <strong>
-          <a href="https://awftex.com/" target="_blank">
-            www.awftex.com
-          </a>
-        </strong>
 
       </div>
 
@@ -2763,47 +3060,38 @@ a{
   </div>
 
 </section>
+
+</main>
+
 
 
 <!-- =========================================================
      FOOTER
      ========================================================= -->
 
-<footer class="footer">
+<footer>
 
-  <div class="container">
+  <div class="container footer-main">
 
     <div class="footer-grid">
 
 
-      <div>
+      <div class="footer-brand">
 
-        <!-- ACTUAL COLOUR LOGO -->
-        <a
-          href="#"
-          class="footer-logo">
+        <img
+          src="images/logo.svg"
+          alt="AWFTEX Industries">
 
-          <img
-            src="images/awftex-logo.png"
-            alt="AWFTEX Industries">
-
-        </a>
-
-
-        <p class="footer-about">
-
-          AWFTEX Industries delivers integrated engineering,
-          manufacturing, fabrication, installation and
-          commissioning solutions across dairy, industrial,
-          MEP, fire safety, security, water, air purification
-          and solar energy.
-
+        <p>
+          Integrated engineering, manufacturing,
+          fabrication, installation and commissioning
+          solutions for modern industry and infrastructure.
         </p>
 
       </div>
 
 
-      <div>
+      <div class="footer-column">
 
         <h4>Company</h4>
 
@@ -2811,71 +3099,81 @@ a{
         <a href="#why">Why AWFTEX</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#projects">Projects</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#">Leadership</a>
 
       </div>
 
 
-      <div>
+      <div class="footer-column">
 
         <h4>Solutions</h4>
 
         <a href="#dairy">Dairy & Food</a>
-        <a href="#industrial">Industrial</a>
-        <a href="#mep">MEP Services</a>
-        <a href="#fire">Fire & Security</a>
-        <a href="#water">Water Treatment</a>
-        <a href="#air">Air Purification</a>
-        <a href="#solar">Solar Energy</a>
+        <a href="#solutions">Industrial</a>
+        <a href="#execution">MEP</a>
+        <a href="#solutions">Fire & Safety</a>
+        <a href="#solutions">Water & Air</a>
+        <a href="#solutions">Solar</a>
 
       </div>
 
 
-      <div>
+      <div class="footer-column">
 
-        <h4>Connect</h4>
+        <h4>Industries</h4>
+
+        <a href="#industries">Dairy</a>
+        <a href="#industries">Food Processing</a>
+        <a href="#industries">Manufacturing</a>
+        <a href="#industries">Industrial Plants</a>
+        <a href="#industries">Infrastructure</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Contact</h4>
 
         <a href="tel:+919915601687">
           +91 9915601687
         </a>
 
-        <a href="mailto:office@awftex.com">
-          office@awftex.com
+        <a href="mailto:awftex@gmail.com">
+          awftex@gmail.com
         </a>
 
         <a
-          href="https://wa.me/919915601687"
-          target="_blank">
-          WhatsApp
-        </a>
-
-        <a
-          href="https://awftex.com/"
+          href="https://www.awftex.com/"
           target="_blank">
           www.awftex.com
+        </a>
+
+        <a href="#contact">
+          Start A Project
         </a>
 
       </div>
 
     </div>
 
+  </div>
 
-    <div class="footer-bottom">
 
-      <span>
-        © 2026 AWFTEX Industries. All Rights Reserved.
-      </span>
+  <div class="container footer-bottom">
 
-      <span>
-        Integrated Engineering & Industrial Solutions
-      </span>
+    <span>
+      © 2026 AWFTEX Industries. All Rights Reserved.
+    </span>
 
-    </div>
+    <span>
+      Engineering • Manufacturing • Installation • Commissioning
+    </span>
 
   </div>
 
 </footer>
+
 
 
 <!-- =========================================================
@@ -2883,155 +3181,229 @@ a{
      ========================================================= -->
 
 <a
+  class="whatsapp"
   href="https://wa.me/919915601687?text=Hello%20AWFTEX%20Industries%2C%20I%20would%20like%20to%20discuss%20a%20project."
-  target="_blank"
-  class="whatsapp-float"
-  aria-label="WhatsApp">
-
-  WA
-
+  aria-label="Contact AWFTEX on WhatsApp"
+  target="_blank">
+  ☎
 </a>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
 
 <script>
 
-document.addEventListener("DOMContentLoaded",function(){
-
-  const menuToggle =
-    document.getElementById("menuToggle");
-
-  const megaMenu =
-    document.getElementById("megaMenu");
-
-  const header =
-    document.getElementById("header");
+/* =========================================================
+   AWFTEX CORPORATE WEBSITE JS
+   ========================================================= */
 
 
-  /* =======================================================
-     MENU OPEN / CLOSE
-     ======================================================= */
+/* ---------------------------------------------------------
+   HEADER SHADOW ON SCROLL
+   --------------------------------------------------------- */
 
-  menuToggle.addEventListener("click",function(){
+const header =
+  document.getElementById("header");
 
-    const isOpen =
-      megaMenu.classList.toggle("active");
+window.addEventListener(
+  "scroll",
+  function(){
 
-    menuToggle.classList.toggle(
-      "active",
-      isOpen
-    );
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      isOpen ? "true" : "false"
-    );
-
-    document.body.style.overflow =
-      isOpen ? "hidden" : "";
-
-  });
-
-
-  /* =======================================================
-     CLOSE MENU AFTER LINK CLICK
-     ======================================================= */
-
-  megaMenu.querySelectorAll("a").forEach(function(link){
-
-    link.addEventListener("click",function(){
-
-      megaMenu.classList.remove("active");
-
-      menuToggle.classList.remove("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      document.body.style.overflow = "";
-
-    });
-
-  });
-
-
-  /* =======================================================
-     ESCAPE
-     ======================================================= */
-
-  document.addEventListener("keydown",function(event){
-
-    if(
-      event.key === "Escape" &&
-      megaMenu.classList.contains("active")
-    ){
-
-      megaMenu.classList.remove("active");
-
-      menuToggle.classList.remove("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      document.body.style.overflow = "";
-
+    if(window.scrollY > 20){
+      header.classList.add("scrolled");
+    }else{
+      header.classList.remove("scrolled");
     }
 
-  });
+  },
+  {passive:true}
+);
 
 
-  /* =======================================================
-     HEADER SCROLL
-     ======================================================= */
+/* ---------------------------------------------------------
+   MOBILE MENU
+   --------------------------------------------------------- */
 
-  function updateHeader(){
+const mobileToggle =
+  document.getElementById("mobileToggle");
 
-    if(window.scrollY > 30){
+const mobileMenu =
+  document.getElementById("mobileMenu");
 
-      header.classList.add("scrolled");
+mobileToggle.addEventListener(
+  "click",
+  function(){
 
-    }else{
+    mobileMenu.classList.toggle("active");
 
-      header.classList.remove("scrolled");
+  }
+);
+
+
+document
+  .querySelectorAll(".mobile-menu a")
+  .forEach(
+    function(link){
+
+      link.addEventListener(
+        "click",
+        function(){
+
+          mobileMenu.classList.remove("active");
+
+        }
+      );
+
+    }
+  );
+
+
+/* ---------------------------------------------------------
+   SCROLL REVEAL
+   --------------------------------------------------------- */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+  new IntersectionObserver(
+    function(entries){
+
+      entries.forEach(
+        function(entry){
+
+          if(entry.isIntersecting){
+
+            entry.target.classList.add(
+              "visible"
+            );
+
+            revealObserver.unobserve(
+              entry.target
+            );
+
+          }
+
+        }
+      );
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+
+revealElements.forEach(
+  function(element){
+
+    revealObserver.observe(
+      element
+    );
+
+  }
+);
+
+
+/* ---------------------------------------------------------
+   CLOSE MOBILE MENU WHEN RESIZING
+   --------------------------------------------------------- */
+
+window.addEventListener(
+  "resize",
+  function(){
+
+    if(window.innerWidth > 850){
+
+      mobileMenu.classList.remove(
+        "active"
+      );
 
     }
 
   }
-
-  window.addEventListener(
-    "scroll",
-    updateHeader,
-    {passive:true}
-  );
-
-  updateHeader();
+);
 
 
-  /* =======================================================
-     CLOSE MENU WHEN RESIZING
-     ======================================================= */
+/* ---------------------------------------------------------
+   SMOOTH ANCHOR HANDLING
+   --------------------------------------------------------- */
 
-  window.addEventListener("resize",function(){
+document
+  .querySelectorAll('a[href^="#"]')
+  .forEach(
+    function(anchor){
 
-    if(window.innerWidth > 768){
+      anchor.addEventListener(
+        "click",
+        function(event){
 
-      document.body.style.overflow = "";
+          const id =
+            this.getAttribute("href");
+
+          if(
+            id &&
+            id !== "#"
+          ){
+
+            const target =
+              document.querySelector(id);
+
+            if(target){
+
+              event.preventDefault();
+
+              const headerHeight =
+                header.offsetHeight;
+
+              const targetPosition =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                headerHeight;
+
+              window.scrollTo({
+
+                top:
+                  targetPosition,
+
+                behavior:
+                  "smooth"
+
+              });
+
+            }
+
+          }
+
+        }
+      );
 
     }
+  );
 
-  });
 
-});
+/* ---------------------------------------------------------
+   PREVENT EMPTY # LINKS FROM JUMPING
+   --------------------------------------------------------- */
+
+document
+  .querySelectorAll('a[href="#"]')
+  .forEach(
+    function(link){
+
+      link.addEventListener(
+        "click",
+        function(event){
+
+          event.preventDefault();
+
+        }
+      );
+
+    }
+  );
 
 </script>
-
 
 </body>
 </html>
