@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://awftex.com/sitemap.xml
